@@ -1,0 +1,44 @@
+카카오로그인
+
+카카오 api
+클라이언트키
+73d5ecb33a170699c7c538705a190d9a
+
+로그인요청 콜백주소
+Redirect URI	
+http://localhost:8090/auth/kakao/callback
+
+User 오브젝트 : id(번호), username, passsword, email
+카카오로부터 받을 정보 : profile정보(필수), email(선택)
+
+로그인 요청주소(GET)
+https://kauth.kakao.com/oauth/authorize?client_id=73d5ecb33a170699c7c538705a190d9a&redirect_uri=http://localhost:8090/auth/kakao/callback&response_type=code
+
+응답받은 코드
+http://localhost:8090/auth/kakao/callback?code=D9swpyBb_OJc52_gODd4MhSs_KnTj9WXcZ1BfagXL7rb9ZKjsRs3VCMJ3SVuJKS5vvWVeAo9dVoAAAGF7QL-_w
+
+토큰 발급 요청주소(POST) - http body에 데이터를 전달 (5가지 데이터를 담아 전달)
+MIME : application/x-www-form-urlencoded;charset=utf-8 (key=value)
+grant_type = authorization_code
+client_id = 73d5ecb33a170699c7c538705a190d9a
+redirect_uri = http://localhost:8090/auth/kakao/callback
+code = {동적임}
+client_secret = 필수아님
+
+https://kauth.kakao.com/oauth/token
+
+
+토큰을 통한 사용자 정보 조회( POST)
+GET/POST /v2/user/me HTTP/1.1
+Host: https://kapi.kakao.com/v2/user/me    (요청주소)
+Authorization: Bearer ${ACCESS_TOKEN}/KakaoAK ${APP_ADMIN_KEY}
+Content-type: application/x-www-form-urlencoded;charset=utf-8
+
+
+
+
+구글로그인 
+
+693251242852-0bbnt7pg2a1i55sidijleiht881rop1r.apps.googleusercontent.com
+
+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
